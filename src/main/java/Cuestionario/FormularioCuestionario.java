@@ -221,6 +221,8 @@ public void mostrarPregunta(int indicePregunta){
        etiqueta.setText("Tu respuesta es  "+acierto);
        //Este incremento hace que la siguiente pregunta sea incrementada en 1
           preguntaActual++;
+            System.out.println("La pregunta actual es"+preguntaActual);
+            System.out.println("Las preguntas totales son "+preguntas.size());
         //Para  que no se lance la expcion hacer que el metodo mostrar pregunta
         //no muestre la preguta si el tamaño de ArrayList ue se llama preguntas
         // ya no tiene mas preguntas, debes de apoyarte del metodo size()

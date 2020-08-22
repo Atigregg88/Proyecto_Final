@@ -426,6 +426,34 @@ public class Cuestionario_2 extends javax.swing.JFrame {
 
     private void checkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkButtonActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        //aqui se invocar el algoritmo 
+        //vamos a ver si funciona el isSelected()
+        //para ello probamos con el primero radiotitulo0
+        //boolean r0=radioTituloOpcion0.isSelected();
+        //ahora ese booleano lo imprimimos en la etiqueta respuesta
+        // etiqueta.setText("Tu respuesta es: "+r0);
+        //vamos primero a iterar el arreglo de radios
+        //primero obtenemos la primer pregunta de nuestro listado de preguntas
+        if(preguntaActual<preguntas.size()){
+        Opcion[] opciones = preguntas.get(preguntaActual).getOpciones();
+       boolean acierto=false;
+        for (int i = 0; i < radios.size(); i++) {
+            if (radios.get(i).isSelected() && opciones[i].isCorrecta()) {   
+                acierto=true;
+                break;
+            }
+        } //Aqui termina el for
+       etiquetaTituloPregunta.setText("Tu respuesta es  "+acierto);
+       //Este incremento hace que la siguiente pregunta sea incrementada en 1
+          preguntaActual++;
+            System.out.println("La pregunta actual es"+preguntaActual);
+            System.out.println("Las preguntas totales son "+preguntas.size());
+        //Para  que no se lance la expcion hacer que el metodo mostrar pregunta
+        //no muestre la preguta si el tamaño de ArrayList ue se llama preguntas
+        // ya no tiene mas preguntas, debes de apoyarte del metodo size()
+      mostrarPregunta(preguntaActual);
+        }
     }//GEN-LAST:event_checkButtonActionPerformed
 
     /**
